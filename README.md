@@ -45,7 +45,7 @@ SoundCast map your user ID with our unique user ID
 
 ## You initiate the synchronization
 
-You will call our pixel and SoundCast will record incoming requests and issues a [302 Redirect](https://en.wikipedia.org/wiki/HTTP_302) to your user matching API.
+You will call our pixel and SoundCast will record incoming requests and issues a [302 Redirect](https://en.wikipedia.org/wiki/HTTP_302) to your user matching API. Your API will need a **UID** placeholder in it's URL to receive the SoundCast unique user ID.
 
 ### TAG
 
@@ -57,7 +57,7 @@ You will call our pixel and SoundCast will record incoming requests and issues a
 
 | Parameter | Required | Description                |
 |:--------- |:-------- |:-------------------------- |
-| url       | true     | Your callback URL. Soundcast will redirect the queries to this URL after applying our user uid with a [302 FOUND](https://en.wikipedia.org/wiki/HTTP_302) HTTP status code |
+| url       | true     | Your callback URL. Soundcast will redirect the queries to this URL after applying our unique user ID in the **UID** placeholder in the url with a [302 FOUND](https://en.wikipedia.org/wiki/HTTP_302) HTTP status code |
 
 ### Example
 
