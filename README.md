@@ -1,52 +1,38 @@
 # CookieSync documentation
 
-SoundCast can cookie sync with the DSP to enable them to work with our [Supply Side Plateform](https://github.com/SoundCast/soundcast-SSP-documentation).
+Cookie Synchronization is an important process that allows both SoundCast and a partner to
+come to a common understanding about their respective user IDs for the same
+user/browser/device. 
 
-# Workflows
+It allows us to map SoundCast’s unique cookieIDs to the unique user ID
+of our providers.
 
-We allow two different workflows :
-* You can use our pixel and we will redirect to query to your servers
-* We can call your pixel and you will redirect to our servers
 
-# Request from your pixel
+## If SoundCast initiate the synchronization
 
-## Url
+SoundCast will call your pixel and you will have to records incoming requests and issues a [302 Redirect](https://en.wikipedia.org/wiki/HTTP_302) to the SoundCast's CookieSync API.
+
+### Url
 
 ```
-GET https://cookie-sync.api.soundcast.fm/v1/cookie/
+GET https://cookie-sync.api.soundcast.fm/v1/cookie/?partner=[$PARTNER]&uid=[$UID]
 ```
 
-## Query Parameters
+### Query Parameters
 
 | Parameter | Required | Description    |
-|:--------- |:-------- |:-------------- |
+| --------- | -------- | -------------- |
 | partner   | true     | dsp name       |
-| uid       | true     | dsp cookie ID  |
+| uid       | true     | User cookie ID |
 
-# Example
+### Example
 
+Soundcast add your pixel on a website.
+`<img src="yourdomain.com?pid=42qlwa1&gdpr=1&gdpr_consent={consent_string}">`
+
+You issue a 302 Redirect to the SoundCast CookieSync API
 ```
-GET https://cookie-sync.api.soundcast.fm/v1/cookie/?partner={$PARTNER}&uid={$UID}
-```
-
-# Request from our pixel
-
-On this workflow, you will have to use the standart macro **$UID**
-
-## Url
-
-```
-GET https://cookie-sync.api.soundcast.fm/v1/cookie/sync
+GET https://cookie-sync.api.soundcast.fm/v1/cookie/?partner=yourdomain&uid=ql42wa1
 ```
 
-## Query Parameters
-
-| Parameter | Required | Description                |
-|:--------- |:-------- |:-------------------------- |
-| url       | true     | url to redirect the query  |
-
-# Example
-
-```
-GET https://cookie-sync.api.soundcast.fm/v1/cookie/?partner={DSP_NAME}&uid={DSP_COOKIE_ID}
-```
+SoundCast map your user ID with our unique user ID
