@@ -10,7 +10,7 @@ of our providers.
 
 ## If SoundCast initiate the synchronization
 
-SoundCast will call your pixel and you will have to records incoming requests and issues a [302 Redirect](https://en.wikipedia.org/wiki/HTTP_302) to the SoundCast's CookieSync API.
+SoundCast will call your pixel and you will have to record incoming requests and issues a [302 Redirect](https://en.wikipedia.org/wiki/HTTP_302) to the SoundCast's CookieSync API.
 
 ### Url
 
@@ -38,3 +38,31 @@ GET https://cookie-sync.api.soundcast.fm/v1/cookie/?partner=yourdomain&uid=ql42w
 ```
 
 SoundCast map your user ID with our unique user ID
+
+## When you initiate the synchronization
+
+You will call our pixel and SoundCast will record incoming requests and issues a [302 Redirect](https://en.wikipedia.org/wiki/HTTP_302) to your user matching API.
+
+## TAG
+
+```
+<img src="https://cookie-sync.api.soundcast.fm/v1/cookie/sync/?url=[$URL]">
+```
+
+## Query Parameters
+
+| Parameter | Required | Description                |
+|:--------- |:-------- |:-------------------------- |
+| url       | true     | Your callback URL. Soundcast will redirect the queries to this URL after applying our user uid with a [302 FOUND](https://en.wikipedia.org/wiki/HTTP_302) HTTP status code |
+
+# Example
+
+By placing this pixel on a website
+```
+<img src='https://cookie-sync.api.soundcast.fm/v1/cookie/sync/?url=callback.yourdomain.com?uid=$UID' />
+```
+
+SoundCast will replace the **$uid** by its unique user ID and issue a 302 Redirect to the url of the query.
+```
+GET https://callback.yourdomain.com?uid=ql42wa1
+```
