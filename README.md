@@ -28,7 +28,9 @@ GET https://cookie-sync.api.soundcast.fm/v1/cookie/?partner=[$PARTNER]&uid=[$UID
 ### Example
 
 Soundcast add your pixel on a website.
-`<img src="yourdomain.com?pid=42qlwa1&gdpr=1&gdpr_consent={consent_string}">`
+```
+<img src="yourdomain.com?pid=42qlwa1&gdpr=1&gdpr_consent={consent_string}">
+```
 
 You issue a 302 Redirect to the SoundCast CookieSync API
 ```
