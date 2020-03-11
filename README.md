@@ -19,7 +19,7 @@ SoundCast will call your pixel and you will have to record incoming requests and
 ### Url
 
 ```
-GET https://cookie-sync.api.soundcast.fm/v1/cookie/?partner=[$PARTNER]&uid=[$UID]
+GET https://cookie-sync.api.soundcast.fm/v1/cookie/?partner=${PARTNER}&uid=${UID}
 ```
 
 ### Query Parameters
@@ -33,7 +33,7 @@ GET https://cookie-sync.api.soundcast.fm/v1/cookie/?partner=[$PARTNER]&uid=[$UID
 
 Soundcast add your pixel on a website.
 ```
-<img src="yourdomain.com?pid=42qlwa1&gdpr=1&gdpr_consent={consent_string}">
+<img src="yourdomain.com?pid=42qlwa1&gdpr=1&gdpr_consent=${CONSENT}">
 ```
 
 You issue a 302 Redirect to the SoundCast CookieSync API
@@ -50,7 +50,7 @@ You will call our pixel and SoundCast will record incoming requests and issues a
 ### TAG
 
 ```
-<img src="https://cookie-sync.api.soundcast.fm/v1/cookie/sync/?url=[$URL]">
+<img src="https://cookie-sync.api.soundcast.fm/v1/cookie/sync/?url=${URL}">
 ```
 
 ### Query Parameters
@@ -63,7 +63,7 @@ You will call our pixel and SoundCast will record incoming requests and issues a
 
 By placing this pixel on a website
 ```
-<img src='https://cookie-sync.api.soundcast.fm/v1/cookie/sync/?url=callback.yourdomain.com?uid=$UID' />
+<img src='https://cookie-sync.api.soundcast.fm/v1/cookie/sync/?url=callback.yourdomain.com?uid=${UID}' />
 ```
 
 SoundCast will replace the **$uid** by its unique user ID and issue a 302 Redirect to the url of the query.
