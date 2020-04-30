@@ -50,7 +50,7 @@ You will call our pixel and SoundCast will record incoming requests and issues a
 ### TAG
 
 ```
-<img src="https://cookie-sync.api.soundcast.fm/v1/cookie/sync/?url=${URL}">
+<img src="https://cookie-sync.api.soundcast.fm/v1/fwd/?url=$URL">
 ```
 
 ### Query Parameters
@@ -63,7 +63,7 @@ You will call our pixel and SoundCast will record incoming requests and issues a
 
 By placing this pixel on a website
 ```
-<img src='https://cookie-sync.api.soundcast.fm/v1/cookie/sync/?url=callback.yourdomain.com?uid=${UID}' />
+<img src='https://cookie-sync.api.soundcast.fm/v1/fwd/?url=callback.yourdomain.com?uid=$UID' />
 ```
 
 SoundCast will replace the **$uid** by its unique user ID and issue a 302 Redirect to the url of the query.
